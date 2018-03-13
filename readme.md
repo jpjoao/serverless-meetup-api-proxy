@@ -28,7 +28,7 @@ yarn install
 # set env variables
 cp variables.env.example variables.env
 # run serverless local
-sls offline start --skipCacheInvalidation
+sls offline start
 ```
 
 ### Deploy
