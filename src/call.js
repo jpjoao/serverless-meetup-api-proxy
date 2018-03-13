@@ -8,14 +8,11 @@ module.exports.handler = (event, context, callback) => {
       callback(null, {
         statusCode: 200,
         body: JSON.stringify({
-          events: values[0].data,
+          data: values[0].data,
         }),
       });
     })
     .catch(error => {
-
-      console.log(error);
-
       callback(null, {
         statusCode: 500,
         body: JSON.stringify({
