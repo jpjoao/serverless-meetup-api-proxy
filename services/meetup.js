@@ -25,13 +25,13 @@ const meetup = (querystrings, method) => {
     querystrings.group === process.env.VALID_MEETUP_GROUP &&
     splitEndpoints.indexOf(querystrings.endpoint) >= 0
   ) {
-    return axios[method.toLowerCase()](parser(querystrings)).catch(error => {
-      if (error.response.data.errors) {
-        return Promise.reject(error.response.data.errors);
-      }
-
-      return Promise.reject('Meetup API error');
-    });
+    return axios[method.toLowerCase()](parser(querystrings)).catch(error =>
+      Promise.reject(
+        error.response.data.errors
+          ? error.response.data.errors
+          : 'Meetup API error'
+      )
+    );
   }
 
   return Promise.reject('Invalid querystrings');
