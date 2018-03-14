@@ -15,7 +15,6 @@ functions:
       - http:
           path: call
           method: any
-          cors: true
 
 plugins:
 - serverless-offline # plugin to run the offline emulation
