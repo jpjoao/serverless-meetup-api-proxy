@@ -22,6 +22,8 @@ This remove any connection between the client and the Meetup API, eliminating pr
 
 ### Run
 
+Use [serverless](https://serverless.com/) package to deploy and run offline.
+
 ```sh
 # install dependencies
 yarn install
