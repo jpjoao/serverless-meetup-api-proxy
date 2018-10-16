@@ -20,9 +20,11 @@ const parser = params => {
 const meetup = (querystrings, method) => {
   const validEndpointsSeparatedByCommas = process.env.VALID_ENDPOINTS;
   const splitEndpoints = validEndpointsSeparatedByCommas.split(',');
+  const validGroupsSeparatedByCommas = process.env.VALID_MEETUP_GROUPS
+  const splitGroups = validGroupsSeparatedByCommas.split(',');;
 
   if (
-    querystrings.group === process.env.VALID_MEETUP_GROUP &&
+    splitGroups.indexOf(querystrings.group) >= 0 &&
     splitEndpoints.indexOf(querystrings.endpoint) >= 0
   ) {
     return axios[method.toLowerCase()](parser(querystrings)).catch(error =>
